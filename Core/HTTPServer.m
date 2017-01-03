@@ -611,6 +611,9 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 		
 		[[self class] performBonjourBlock:bonjourBlock];
 		
+		// workaround apples weaksauce http://www.openradar.me/28943305
+		[netService setDelegate:nil];
+
 		netService = nil;
 	}
 }
